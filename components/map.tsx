@@ -40,8 +40,6 @@ export default function MainMap() {
   }, []);
 
   return (
-    <div className='h-screen w-screen'>
-      <div ref={mapContainer} className='h-full w-full' />
-    </div>
+    <div ref={mapContainer} className='h-full w-full' />
   );  
 };
