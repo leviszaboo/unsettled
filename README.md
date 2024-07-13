@@ -8,6 +8,7 @@ The technologies used in this project:
 
 - Next.js 14
 - Typescript
+- react-map-gl
 - tailwindcss
 - Firebase.
 
