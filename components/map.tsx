@@ -26,10 +26,7 @@ const viewport = {
   minZoom: 6.05,
   dragRotate: false,
   touchZoomRotate: false,
-  maxBounds: [
-    [bounds[1], bounds[0]],
-    [bounds[3], bounds[2]],
-  ],
+  // maxBounds: [[bounds[1], bounds[0]], [bounds[3], bounds[2]]]
 };
 
 export default function MainMap({
