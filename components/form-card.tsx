@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
@@ -5,47 +7,47 @@ import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { PostData } from "@/app/types/postData";
 import createPost from "@/app/actions/createPost";
+import useMapEditingStore from "@/app/hooks/useMapEditing";
 
-export default function TextCard({ x, y }: { x: number; y: number }) {
+//{ x, y }: { x: number; y: number }         style={{ left: adjustedX, top: adjustedY }}
+
+export default function FormCard({ lat, lng }: { lat: number; lng: number }) {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-
-  const windowWidth = window.innerWidth;
-  const cardWidth = 300;
-
-  const adjustedX =
-    x + 30 + cardWidth > windowWidth ? windowWidth - cardWidth - 20 : x + 30;
-  const adjustedY = y - 200 < 0 ? 20 : y - 200;
+  const [success, setSuccess] = useState<boolean>(false);
+  const { toggleEditing } = useMapEditingStore();
 
   const onSubmit = async (formData: FormData) => {
-    setLoading(true);
+    setError(null);
+    setSuccess(false);
+
     try {
       const data: PostData = {
         name: formData.get("name") as string,
         city: formData.get("city") as string,
         story: formData.get("story") as string,
-        x,
-        y,
+        lat,
+        lng,
       };
 
       const res = await createPost(data);
 
       if (!res.success) {
         setError("Something went wrong.");
+      } else {
+        setSuccess(true);
       }
     } catch {
       setError("Invalid form inputs.");
     }
 
     setLoading(false);
+    toggleEditing();
   };
 
   return (
     <form action={onSubmit}>
-      <div
-        style={{ left: adjustedX, top: adjustedY }}
-        className="absolute flex flex-col bg-white rounded-md gap-4 p-4"
-      >
+      <div className="flex flex-col bg-white rounded-md gap-4 p-4">
         <div className="font-semibold">Add Your Story</div>
         <div className="flex flex-col gap-2">
           <div>
@@ -64,8 +66,15 @@ export default function TextCard({ x, y }: { x: number; y: number }) {
               {error}
             </div>
           )}
+          {success && (
+            <div className="text-sm justify-center text-green-500 mr-auto">
+              Success!
+            </div>
+          )}
           <div className="ml-auto">
-            <Button type="submit">{loading ? "Saving..." : "Save"}</Button>
+            <Button type="submit" onClick={() => setLoading(true)}>
+              {loading ? "Saving..." : "Save"}
+            </Button>
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 "use server";
 
-import axios from "axios";
 import { PostData } from "../types/postData";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/firebase/config";
