@@ -1,42 +1,30 @@
-"use client"
+"use client";
 
-import React, { use, useEffect, useState } from 'react'
-import useMapEditingStore from '@/app/hooks/useMapEditing'
-import Pin from './pin'
-import TextCard from './textcard'
+import useMapEditingStore from "@/app/hooks/useMapEditing";
+import { useEffect } from "react";
 
-export default function PageWrapper({ children }: { children: React.ReactNode }) {
-  const { isEditing } = useMapEditingStore()
-  const [svgPosition, setSvgPosition] = useState<{ x: number, y: number} | null>(null);
-  
-  const handleClick = (event: any) => {
-    if (isEditing && !svgPosition) {
-      // If currently editing, remove the SVG
-      setSvgPosition({ x: event.clientX, y: event.clientY });
-    } else {
-      setSvgPosition(null);
-    }
-
-    console.log(svgPosition);
-  };
+export default function PageWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const { isEditing } = useMapEditingStore();
 
   useEffect(() => {
-    if (!isEditing) {
-      setSvgPosition(null);
+    const canvas = document.querySelector(
+      ".mapboxgl-canvas-container",
+    ) as HTMLElement;
+
+    if (!canvas) return;
+
+    canvas.style.cursor = "auto";
+
+    if (isEditing) {
+      canvas.classList.add("editing");
+    } else {
+      canvas.classList.remove("editing");
     }
   }, [isEditing]);
-  
-  return (
-    <>
-      <div className={`absolute h-screen w-screen ${(isEditing && !svgPosition ) ? "editing" : null}`} onClick={handleClick}>
-        {children}
-      </div>
-      {svgPosition && (
-        <>
-          <TextCard x={svgPosition.x} y={svgPosition.y} />
-          <Pin x={svgPosition.x} y={svgPosition.y} />
-        </>
-      )}
-    </>
-  ) 
+
+  return <div className="absolute h-screen w-screen">{children}</div>;
 }
