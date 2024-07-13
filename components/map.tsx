@@ -1,14 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import ReactMapGL, { Map, Marker, Popup } from "react-map-gl";
+import { Map, Marker, Popup } from "react-map-gl";
 import useMapEditingStore from "@/app/hooks/useMapEditing";
 import FormCard from "./form-card";
 import { FireBasePostDoc } from "@/app/types/postData";
-import StoryCard from "./story-card";
 import Pin from "./pin";
 import Stories from "./stories";
-import mapboxgl from "mapbox-gl";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN as string;
 

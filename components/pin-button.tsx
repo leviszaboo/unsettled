@@ -1,11 +1,10 @@
-"use client"
+"use client";
 
-import { MouseEventHandler, useState } from 'react'
-import { Button } from './ui/button'
-import useMapEditingStore from '@/app/hooks/useMapEditing'
+import { Button } from "./ui/button";
+import useMapEditingStore from "@/app/hooks/useMapEditing";
 
 export default function PinButton() {
-  const { isEditing, toggleEditing } = useMapEditingStore()
+  const { isEditing, toggleEditing } = useMapEditingStore();
 
   const handleClick = (event: any) => {
     toggleEditing();
@@ -17,5 +16,5 @@ export default function PinButton() {
         {isEditing ? "Cancel" : "Add Your Story"}
       </Button>
     </div>
-  )
+  );
 }

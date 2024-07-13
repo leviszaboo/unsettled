@@ -1,7 +1,6 @@
 import MainMap from "@/components/map";
 import PageWrapper from "@/components/page-wrapper";
 import PinButton from "@/components/pin-button";
-import Stories from "@/components/stories";
 import { db } from "@/firebase/config";
 import { collection, getDocs, query } from "firebase/firestore";
 import { cache } from "react";

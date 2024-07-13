@@ -1,7 +1,7 @@
 "use client";
 
 import { FireBasePostDoc } from "@/app/types/postData";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Pin from "./pin";
 import { Marker, Popup } from "react-map-gl";
 import StoryCard from "./story-card";
