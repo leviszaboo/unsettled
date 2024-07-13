@@ -31,7 +31,7 @@ export default async function Home() {
 
   return (
     <PageWrapper>
-      <MainMap posts={posts} />
+      <MainMap fetchedPosts={posts} />
       <PinButton />
     </PageWrapper>
   );

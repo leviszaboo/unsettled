@@ -3,9 +3,11 @@
 import { PostData } from "../types/postData";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/firebase/config";
-import { uuid } from "uuidv4";
+import { v4 as uuid } from "uuid";
 
-async function createPost(postData: PostData) {
+async function createPost(
+  postData: PostData,
+): Promise<{ success: boolean; id?: string; error?: string }> {
   try {
     const id = uuid();
 
@@ -13,6 +15,7 @@ async function createPost(postData: PostData) {
 
     return {
       success: true,
+      id,
     };
   } catch (error) {
     console.error("Error creating post: ", error);

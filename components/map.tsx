@@ -7,8 +7,16 @@ import FormCard from "./form-card";
 import { FireBasePostDoc } from "@/app/types/postData";
 import Pin from "./pin";
 import Stories from "./stories";
+import usePostsStore from "@/app/hooks/usePosts";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN as string;
+
+const bounds = [
+  49.440258,
+  10.760593, // Southwest coordinates
+  54.791129,
+  -1.164164, // Northeast coordinates
+];
 
 const viewport = {
   latitude: 52.204856,
@@ -18,16 +26,24 @@ const viewport = {
   minZoom: 6.05,
   dragRotate: false,
   touchZoomRotate: false,
+  maxBounds: [
+    [bounds[1], bounds[0]],
+    [bounds[3], bounds[2]],
+  ],
 };
 
-export default function MainMap({ posts }: { posts: FireBasePostDoc[] }) {
+export default function MainMap({
+  fetchedPosts,
+}: {
+  fetchedPosts: FireBasePostDoc[];
+}) {
   const { isEditing } = useMapEditingStore();
+  const { posts, setPosts } = usePostsStore();
 
   const [selectedLocation, setSelectedLocation] = useState<{
     lng: number;
     lat: number;
   } | null>(null);
-  const [showPopup, setShowPopup] = useState<boolean>(false);
 
   const handleClick = (e: any) => {
     if (!isEditing) return;
@@ -35,15 +51,17 @@ export default function MainMap({ posts }: { posts: FireBasePostDoc[] }) {
     const { lng, lat } = e.lngLat;
 
     setSelectedLocation({ lng, lat });
-    setShowPopup(true);
   };
 
   useEffect(() => {
     if (!isEditing) {
       setSelectedLocation(null);
-      setShowPopup(false);
     }
   }, [isEditing]);
+
+  useEffect(() => {
+    setPosts(fetchedPosts);
+  }, [fetchedPosts]);
 
   return (
     <Map
@@ -61,16 +79,14 @@ export default function MainMap({ posts }: { posts: FireBasePostDoc[] }) {
           >
             <Pin />
           </Marker>
-          {showPopup && (
-            <Popup
-              latitude={selectedLocation.lat}
-              longitude={selectedLocation.lng}
-              onClose={() => setShowPopup(false)}
-              closeOnClick={false}
-            >
-              <FormCard lng={selectedLocation.lng} lat={selectedLocation.lat} />
-            </Popup>
-          )}
+          <Popup
+            latitude={selectedLocation.lat}
+            longitude={selectedLocation.lng}
+            onClose={() => setSelectedLocation(null)}
+            closeOnClick={false}
+          >
+            <FormCard lng={selectedLocation.lng} lat={selectedLocation.lat} />
+          </Popup>
         </>
       )}
     </Map>

@@ -81,7 +81,7 @@
 .mapboxgl-marker:hover {
   cursor: pointer;
 }
-
+/*
 .mapboxgl-canvas-container.mapboxgl-interactive,
 .mapboxgl-ctrl-group button.mapboxgl-ctrl-compass {
   cursor: auto !important;
@@ -90,4 +90,9 @@
 .mapboxgl-canvas-container.mapboxgl-interactive:active,
 .mapboxgl-ctrl-group button.mapboxgl-ctrl-compass:active {
   cursor: auto !important;
+}
+*/
+.mapboxgl-popup-content {
+  background: none !important;
+  padding: 0 !important;
 }

@@ -6,7 +6,7 @@ import useMapEditingStore from "@/app/hooks/useMapEditing";
 export default function PinButton() {
   const { isEditing, toggleEditing } = useMapEditingStore();
 
-  const handleClick = (event: any) => {
+  const handleClick = () => {
     toggleEditing();
   };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import useMapEditingStore from "@/app/hooks/useMapEditing";
+import { useEffect } from "react";
 
 export default function PageWrapper({
   children,
@@ -9,11 +10,21 @@ export default function PageWrapper({
 }) {
   const { isEditing } = useMapEditingStore();
 
-  return (
-    <div
-      className={`absolute h-screen w-screen ${isEditing ? "editing" : null}`}
-    >
-      {children}
-    </div>
-  );
+  useEffect(() => {
+    const canvas = document.querySelector(
+      ".mapboxgl-canvas-container",
+    ) as HTMLElement;
+
+    if (!canvas) return;
+
+    canvas.style.cursor = "auto";
+
+    if (isEditing) {
+      canvas.classList.add("editing");
+    } else {
+      canvas.classList.remove("editing");
+    }
+  }, [isEditing]);
+
+  return <div className="absolute h-screen w-screen">{children}</div>;
 }

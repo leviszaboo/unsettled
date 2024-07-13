@@ -1,7 +1,7 @@
 "use client";
 
 import { FireBasePostDoc } from "@/app/types/postData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Pin from "./pin";
 import { Marker, Popup } from "react-map-gl";
 import StoryCard from "./story-card";
@@ -10,6 +10,12 @@ import useMapEditingStore from "@/app/hooks/useMapEditing";
 export default function Stories({ posts }: { posts: FireBasePostDoc[] }) {
   const [activePost, setActivePost] = useState<FireBasePostDoc | null>(null);
   const { isEditing } = useMapEditingStore();
+
+  useEffect(() => {
+    if (isEditing) {
+      setActivePost(null);
+    }
+  }, [isEditing]);
 
   return (
     <>
@@ -39,7 +45,6 @@ export default function Stories({ posts }: { posts: FireBasePostDoc[] }) {
           closeOnClick={true}
         >
           <StoryCard
-            id={activePost.id}
             name={activePost.name}
             city={activePost.city}
             story={activePost.story}
