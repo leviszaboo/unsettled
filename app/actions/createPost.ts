@@ -3,10 +3,13 @@
 import { PostData } from "../types/postData";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/firebase/config";
+import { uuid } from "uuidv4";
 
 async function createPost(postData: PostData) {
   try {
-    await addDoc(collection(db, "posts"), postData);
+    const id = uuid();
+
+    await addDoc(collection(db, "posts"), { id, ...postData });
 
     return {
       success: true,

@@ -9,7 +9,7 @@ import { FireBasePostDoc } from "../types/postData";
 
 export const revalidate = 0;
 
-export const fetchDocs = cache(async (ref: string) => {
+const fetchDocs = cache(async (ref: string) => {
   try {
     const querySnapshot = await getDocs(query(collection(db, ref)));
 

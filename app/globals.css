@@ -69,11 +69,25 @@
 }
 
 .editing {
-  cursor: url("/pin.svg"), auto;
+  cursor: url("/pin.svg"), auto !important;
 }
 
 .mapboxgl-popup-tip,
 .mapboxgl-popup-close-button,
 .mapboxgl-ctrl-logo {
   display: none !important;
+}
+
+.mapboxgl-marker:hover {
+  cursor: pointer;
+}
+
+.mapboxgl-canvas-container.mapboxgl-interactive,
+.mapboxgl-ctrl-group button.mapboxgl-ctrl-compass {
+  cursor: auto !important;
+}
+
+.mapboxgl-canvas-container.mapboxgl-interactive:active,
+.mapboxgl-ctrl-group button.mapboxgl-ctrl-compass:active {
+  cursor: auto !important;
 }

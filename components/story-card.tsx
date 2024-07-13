@@ -5,12 +5,10 @@ export default function StoryCard({
   name,
   city,
   story,
-  lat,
-  lng,
-}: FireBasePostDoc) {
+}: Omit<FireBasePostDoc, "lat" | "lng">) {
   return (
     <div>
-      <div className="absolute flex flex-col bg-white rounded-md gap-4 p-4">
+      <div className="flex flex-col bg-white rounded-md gap-4 p-4">
         <div>
           <span className="font-semibold">{name}, </span>
           <span className="italic">{city}</span>

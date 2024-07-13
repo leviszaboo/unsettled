@@ -9,8 +9,6 @@ import { PostData } from "@/app/types/postData";
 import createPost from "@/app/actions/createPost";
 import useMapEditingStore from "@/app/hooks/useMapEditing";
 
-//{ x, y }: { x: number; y: number }         style={{ left: adjustedX, top: adjustedY }}
-
 export default function FormCard({ lat, lng }: { lat: number; lng: number }) {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
