@@ -5,6 +5,7 @@ import { db } from "@/firebase/config";
 import { collection, getDocs, query } from "firebase/firestore";
 import { cache } from "react";
 import { FireBasePostDoc } from "../types/postData";
+import InfoTrigger from "@/components/info-trigger";
 
 export const revalidate = 0;
 
@@ -31,6 +32,7 @@ export default async function Home() {
 
   return (
     <PageWrapper>
+      <InfoTrigger />
       <MainMap fetchedPosts={posts} />
       <PinButton />
     </PageWrapper>

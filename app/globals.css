@@ -69,7 +69,8 @@
 }
 
 .editing {
-  cursor: url("/pin.svg"), auto !important;
+  /* cursor: url("/pin.png"), auto  !important; */
+  cursor: pointer !important;
 }
 
 .mapboxgl-popup-tip,
@@ -96,3 +97,19 @@
   background: none !important;
   padding: 0 !important;
 }
+
+.hc-bg-primary {
+  background-color: #acd2e4;
+}
+
+.hc-text-primary {
+  color: #242424;
+}
+
+.hc-bg-black {
+  background-color: #0b0b0b;
+}
+
+/* black=0B0B0B grey=242424 blue=243C53 green=557B3D
+light blue= ACD2E4
+yellow=F5D400 */
