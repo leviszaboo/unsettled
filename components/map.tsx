@@ -61,7 +61,7 @@ export default function MainMap({
 
   useEffect(() => {
     setPosts(fetchedPosts);
-  }, [fetchedPosts]);
+  }, [fetchedPosts, setPosts]);
 
   return (
     <Map
