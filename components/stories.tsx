@@ -48,6 +48,7 @@ export default function Stories({ posts }: { posts: FireBasePostDoc[] }) {
             name={activePost.name}
             city={activePost.city}
             story={activePost.story}
+            state={activePost !== null}
           />
         </Popup>
       )}

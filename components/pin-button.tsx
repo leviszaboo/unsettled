@@ -11,7 +11,7 @@ export default function PinButton() {
   };
 
   return (
-    <div className="absolute bottom-3 right-3">
+    <div className="absolute bottom-4 right-4">
       <Button onClick={handleClick}>
         {isEditing ? "Cancel" : "Add Your Story"}
       </Button>
