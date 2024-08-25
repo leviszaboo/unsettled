@@ -102,12 +102,42 @@
   background-color: #acd2e4;
 }
 
-.hc-text-primary {
+.hc-text-emphasis {
   color: #242424;
+}
+
+.hc-text-primary {
+  color: #243c53;
+}
+
+.hc-text-secondary {
+  color: #acd2e4;
+}
+
+.hc-text-yellow {
+  color: #f5d400;
 }
 
 .hc-bg-black {
   background-color: #0b0b0b;
+}
+
+.hc-bg-blue {
+  background-color: #243c53;
+}
+
+.hc-bg-grey {
+  background-color: #242424;
+}
+
+.hc-hover-bg-gray {
+  &:hover {
+    background-color: #242424;
+  }
+}
+
+.circle {
+  border-radius: 50%;
 }
 
 /* black=0B0B0B grey=242424 blue=243C53 green=557B3D

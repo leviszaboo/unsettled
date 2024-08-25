@@ -9,6 +9,7 @@ import { PostData } from "@/app/types/postData";
 import createPost from "@/app/actions/createPost";
 import useMapEditingStore from "@/app/hooks/useMapEditing";
 import usePostsStore from "@/app/hooks/usePosts";
+import ClosingButton from "./closing-button";
 
 export default function FormCard({ lat, lng }: { lat: number; lng: number }) {
   const [loading, setLoading] = useState<boolean>(false);
@@ -20,6 +21,7 @@ export default function FormCard({ lat, lng }: { lat: number; lng: number }) {
   const onSubmit = async (formData: FormData) => {
     setError(null);
     setSuccess(false);
+    setLoading(true);
 
     try {
       const data: PostData = {
@@ -52,22 +54,33 @@ export default function FormCard({ lat, lng }: { lat: number; lng: number }) {
 
   return (
     <form action={onSubmit}>
-      <div className="flex flex-col bg-white rounded-md gap-4 p-4">
-        <div className="font-semibold">Add Your Story</div>
-        <div className="flex flex-col gap-2">
-          <div>
-            <Label htmlFor="name">Name</Label>
-            <Input name="name" required />
+      <div className="flex flex-col hc-bg-blue rounded-md gap-4 p-4">
+        <div className="flex items-center">
+          <div className="font-semibold hc-text-secondary mr-auto">
+            Add Your Story
           </div>
-          <div>
-            <Label htmlFor="city">City</Label>
-            <Input name="city" required />
+          <div onClick={toggleEditing} className="hover:cursor-pointer">
+            <ClosingButton width={10} height={10} className="ml-auto" />
           </div>
         </div>
-        <Textarea name="story" required />
+        <div className="flex flex-col gap-2">
+          <div>
+            <Label htmlFor="name" className="hc-text-secondary">
+              Name
+            </Label>
+            <Input name="name" className="hc-bg-primary" required />
+          </div>
+          <div>
+            <Label htmlFor="city" className="hc-text-secondary">
+              City
+            </Label>
+            <Input name="city" className="hc-bg-primary" required />
+          </div>
+        </div>
+        <Textarea name="story" className="hc-bg-primary" required />
         <div className="flex">
           {error && (
-            <div className="text-sm justify-center text-red-500 mr-auto">
+            <div className="text-sm justify-center hc-text-yellow mr-auto">
               {error}
             </div>
           )}
@@ -77,7 +90,7 @@ export default function FormCard({ lat, lng }: { lat: number; lng: number }) {
             </div>
           )}
           <div className="ml-auto">
-            <Button type="submit" onClick={() => setLoading(true)}>
+            <Button type="submit" variant={"secondary"}>
               {loading ? "Saving..." : "Save"}
             </Button>
           </div>
