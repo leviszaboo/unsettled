@@ -23,7 +23,7 @@ const bounds = [
 
 const viewport = {
   latitude: 52.204856,
-  longitude: 5.464995,
+  longitude: 5.564995,
   zoom: 6.25,
   maxZoom: 9.05,
   minZoom: 6.25,
