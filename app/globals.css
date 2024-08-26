@@ -68,6 +68,11 @@
   }
 }
 
+html,
+body {
+  background-color: #acd2e4;
+}
+
 .editing {
   /* cursor: url("/pin.png"), auto  !important; */
   cursor: pointer !important;
@@ -115,7 +120,7 @@
 }
 
 .hc-text-yellow {
-  color: #f5d400;
+  color: #cfb408;
 }
 
 .hc-bg-black {
@@ -130,10 +135,8 @@
   background-color: #242424;
 }
 
-.hc-hover-bg-gray {
-  &:hover {
-    background-color: #242424;
-  }
+.hc-bg-green {
+  background-color: #557b3d;
 }
 
 .circle {

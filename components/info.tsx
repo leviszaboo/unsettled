@@ -1,3 +1,4 @@
+import { Asterisk } from "lucide-react";
 import FadeIn from "./fade-in";
 
 export default function Info() {
@@ -5,7 +6,12 @@ export default function Info() {
     <div className="flex h-screen w-screen">
       <div className="flex flex-col gap-8 p-8 w-5/6 h-screen justify-center">
         <div className="flex flex-col gap-5">
-          <h2 className="hc-text-emphasis text-xl font-bold">What is this?</h2>
+          <div className="flex gap-2 items-center">
+            <Asterisk size={24} />
+            <h2 className="hc-text-emphasis text-xl font-bold">
+              What is this?
+            </h2>
+          </div>
           <p className="hc-text-primary text-xl font-medium">
             Have you ever lived in a sketchy household, been scammed,
             couch-surfed, or gotten kicked out of your apartment? <br />
@@ -24,7 +30,10 @@ export default function Info() {
           </p>
         </div>
         <div className="flex flex-col gap-5">
-          <h2 className="hc-text-emphasis text-xl font-bold">Instructions</h2>
+          <div className="flex gap-2 items-center">
+            <Asterisk size={24} />
+            <h2 className="hc-text-emphasis text-xl font-bold">Instructions</h2>
+          </div>
           <ol className="hc-text-primary text-xl font-medium">
             <li>
               1. <span className="font-bold">Add a pin</span> to the city you
