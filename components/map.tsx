@@ -8,6 +8,7 @@ import { FireBasePostDoc } from "@/app/types/postData";
 import Pin from "./pin";
 import Stories from "./stories";
 import usePostsStore from "@/app/hooks/usePosts";
+import Markers from "./markers";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN as string;
 
@@ -71,6 +72,7 @@ export default function MainMap({
       mapboxAccessToken={MAPBOX_TOKEN}
       onClick={handleClick}
     >
+      <Markers />
       <Stories posts={posts} />
       {selectedLocation && isEditing && (
         <>
