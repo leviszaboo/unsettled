@@ -4,7 +4,7 @@ import FadeIn from "./fade-in";
 export default function Info() {
   return (
     <div className="flex h-screen w-screen">
-      <div className="flex flex-col gap-8 p-8 w-5/6 h-screen justify-center">
+      <div className="flex flex-col gap-8 p-6 w-5/6 h-screen justify-center">
         <div className="flex flex-col gap-5">
           <div className="flex gap-2 items-center">
             <Asterisk size={24} />

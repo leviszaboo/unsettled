@@ -107,8 +107,12 @@ body {
   background-color: #acd2e4;
 }
 
+.hc-text-black {
+  color: #0b0b0b;
+}
+
 .hc-text-emphasis {
-  color: #242424;
+  color: #243c53;
 }
 
 .hc-text-primary {
@@ -121,6 +125,14 @@ body {
 
 .hc-text-yellow {
   color: #cfb408;
+}
+
+.hc-text-green {
+  color: #557b3d;
+}
+
+.hc-text-grey {
+  color: #242424;
 }
 
 .hc-bg-black {
@@ -137,6 +149,10 @@ body {
 
 .hc-bg-green {
   background-color: #557b3d;
+}
+
+.hc-bg-yellow {
+  background-color: #f5d400;
 }
 
 .circle {
