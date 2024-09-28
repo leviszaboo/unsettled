@@ -6,7 +6,7 @@ export default function ClosingButton({
   return (
     <svg
       className={className}
-      fill="#ACD2E4"
+      fill="243C53"
       height={`${height}px`}
       width={`${width}px`}
       version="1.1"

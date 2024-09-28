@@ -1,18 +1,23 @@
+"use client";
+
 import { Asterisk } from "lucide-react";
-import FadeIn from "./fade-in";
+import People from "./people";
+import { useWindowSize } from "rooks";
 
 export default function Info() {
+  const { innerWidth } = useWindowSize();
+
   return (
-    <div className="flex h-screen w-screen">
-      <div className="flex flex-col gap-8 p-6 w-5/6 h-screen justify-center">
+    <>
+      <div className="flex flex-col gap-8 p-6 pt-4 pb-10 w-full max-w-4xl md:justify-center absolute top-16 overflow-y-auto">
         <div className="flex flex-col gap-5">
           <div className="flex gap-2 items-center">
             <Asterisk size={24} />
             <h2 className="hc-text-emphasis text-xl font-bold">
-              What is this?
+              What Is This?
             </h2>
           </div>
-          <p className="hc-text-primary text-xl font-medium">
+          <p className="hc-text-primary text-xl sm:text-l font-medium">
             Have you ever lived in a sketchy household, been scammed,
             couch-surfed, or gotten kicked out of your apartment? <br />
             You&apos;re not alone. <br />
@@ -34,34 +39,33 @@ export default function Info() {
             <Asterisk size={24} />
             <h2 className="hc-text-emphasis text-xl font-bold">Instructions</h2>
           </div>
-          <ol className="hc-text-primary text-xl font-medium">
+          <ol className="hc-text-primary text-xl font-medium list-decimal list-inside">
             <li>
-              1. <span className="font-bold">Add a pin</span> to the city you
-              are in/had your experience in
+              <span className="font-bold">Add a pin</span> to the city you are
+              in/had your experience in
             </li>
             <li>
-              2. Share your <span className="font-bold">name</span> if
-              you&apos;d like, but feel free to use fake names or usernames
+              Share your <span className="font-bold">name</span> if you&apos;d
+              like, but feel free to use fake names or usernames
             </li>
             <li>
-              3. Write down the name of your chosen{" "}
+              Write down the name of your chosen{" "}
               <span className="font-bold">city</span>
             </li>
             <li>
-              4. Share your <span className="font-bold">story</span> in detail,
-              or just add a <span className="font-bold">comment</span> or{" "}
+              Share your <span className="font-bold">story</span> in detail, or
+              just add a <span className="font-bold">comment</span> or{" "}
               <span className="font-bold">message</span> that you&apos;d like
               for others to see
             </li>
             <li>
-              5. If you feel comfortable, share a{" "}
+              If you feel comfortable, share a{" "}
               <span className="font-bold">social media handle</span> so people
               can connect with you based on your story/note
             </li>
           </ol>
         </div>
       </div>
-      <div className="hc-bg-blue w-1/6 h-screen flex flex-col justify-center items-center"></div>
-    </div>
+    </>
   );
 }

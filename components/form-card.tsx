@@ -53,7 +53,7 @@ export default function FormCard({ lat, lng }: { lat: number; lng: number }) {
   };
 
   return (
-    <form action={onSubmit}>
+    <form action={onSubmit} className="z-100">
       <div className="flex flex-col hc-bg-blue rounded-md gap-4 p-4">
         <div className="flex items-center">
           <div className="font-semibold hc-text-secondary mr-auto">
