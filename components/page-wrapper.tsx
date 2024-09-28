@@ -26,5 +26,5 @@ export default function PageWrapper({
     }
   }, [isEditing]);
 
-  return <div className="absolute h-screen w-screen">{children}</div>;
+  return <div className="page-wrapper absolute w-screen">{children}</div>;
 }

@@ -73,6 +73,10 @@ body {
   background-color: #acd2e4;
 }
 
+.page-wrapper {
+  height: 100svh;
+}
+
 .editing {
   /* cursor: url("/pin.png"), auto  !important; */
   cursor: pointer !important;
