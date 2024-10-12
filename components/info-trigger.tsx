@@ -20,7 +20,9 @@ export default function InfoTrigger({
         onClick={() => setter(true)}
       >
         <Asterisk size={24} />
-        <p className="font-bold hc-text-emphasis text-xl">What Is This?</p>
+        <p className="font-bold hc-text-emphasis text-xl underline">
+          What Is This?
+        </p>
       </div>
     </>
   );
