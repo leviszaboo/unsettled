@@ -57,6 +57,26 @@ const cities: CityInfo[] = [
     latitude: 52.2215,
     longitude: 6.8937,
   },
+  {
+    name: "Utrecht",
+    latitude: 52.0907,
+    longitude: 5.1214,
+  },
+  {
+    name: "Haarlem",
+    latitude: 52.3874,
+    longitude: 4.6462,
+  },
+  {
+    name: "Leeuwarden",
+    latitude: 53.2194,
+    longitude: 5.5667,
+  },
+  {
+    name: "Eindhoven",
+    latitude: 51.4416,
+    longitude: 5.4697,
+  },
 ];
 
 export default function Markers() {
